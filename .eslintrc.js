@@ -3,10 +3,10 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    jest: true
+    jest: true,
   },
   extends: [
-    'airbnb-base',
+    'airbnb-base', 'prettier'
   ],
   globals: {
     Atomics: 'readonly',
@@ -17,7 +17,9 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "comma-dangle": ["error", "never"],
-    "no-param-reassign": ["error", { "props": false }]
+    "comma-dangle": 0,
+    "no-param-reassign": ["error", { "props": false }],
+    "semi": ["error", "always"],
+        "quotes": ["error", "double"]
   },
 };
