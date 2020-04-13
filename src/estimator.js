@@ -1,4 +1,4 @@
-// Default Configuration given
+// Default Configuration given below for input 
 const input = {
         region: {
         name: "Africa",
@@ -13,30 +13,60 @@ const input = {
         population: 66622705,
         totalHospitalBeds: 1380614
 };
-const covid19ImpactEstimator = (data=input) => ({
+const covid19ImpactEstimator = (data) => {
+const { reportedCases, periodType, totalHospitalBeds} = data;
+let {timeToElapse} = data;
+const {avgDailyIncomeInUSD, avgDailyIncomePopulation} = data.region;
 
-        data: input,
-        estimate:{
+const currentlyInfected = reportedCases * 10;
+const severeCurrentlyInfected = reportedCases * 50;
+
+if(periodType === "weeks"){
+    timeToElapse *=7;
+} else if (periodType === "months"){
+    timeToElapse *=30;
+};
+
+// Cases for Impact of covid-19 Estimator Calculations
+
+const infectionsByRequestedTime = severeCurrentlyInfected (2 * (Math.trunc(timeToElapse / 3)));
+const severeCasesByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.15);
+const hospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - severeCasesByRequestedTime);
+const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.05);
+const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.02);
+const dollarsInFlight = Math.trunc((infectionsByRequestedTime * avgDailyIncomePopulation * avgDailyIncomeInUSD) / timeToElapse);
+
+// Cases for severeImpact of covid-19 Estimator Calculations
+
+const severeInfectionsByRequestedTime = severeCurrentlyInfected (2 * (Math.trunc(timeToElapse / 3)));
+const severeSevereCasesByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.15);
+const severeHospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - severeCasesByRequestedTime);
+const severeCasesForICUByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.05);
+const severeCasesForVentilatorsByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.02);
+const severeDollarsInFlight = Math.trunc((severeInfectionsByRequestedTime * avgDailyIncomePopulation * avgDailyIncomeInUSD) / timeToElapse);
+           
+           return {
+            data,
             impact: {
-            currentlyInfected: input.reportedCases * 10,
-            infectionsByRequestedTime: currentlyInfected * (2 ** (Math.floor( input.timeToElapse/3))),
-            severeCasesByRequestedTime: 0.15 * infectionsByRequestedTime,
-            hospitalBedsByRequestedTime: input.totalHospitalBeds * 0.35,
-            casesForICUByRequestedTime: infectionsByRequestedTime * 0.05,
-            casesForVentilatorsByRequestedTime: infectionsByRequestedTime * 0.02,
-            dollarsInFlight: (infectionsByRequestedTime * 0.65 * Math.floor(input.avgDailyIncomeInUSD)) / 30,
+            currentlyInfected,
+            infectionsByRequestedTime,
+            severeCasesByRequestedTime,
+            hospitalBedsByRequestedTime,
+            casesForICUByRequestedTime,
+            casesForVentilatorsByRequestedTime,
+            dollarsInFlight
         },
 
         severeImpact: {
-            currentlyInfected: input.reportedCases * 50,
-            infectionsByRequestedTime: currentlyInfected * (2 ** (Math.floor(input.timeToElapse / 3))),
-            severeCasesByRequestedTime: 0.15 * infectionsByRequestedTime,
-            hospitalBedsByRequestedTime: totalHospitalBeds * 0.35,
-            casesForICUByRequestedTime: infectionsByRequestedTime * 0.05,
-            casesForVentilatorsByRequestedTime: infectionsByRequestedTime * 0.02,
-            dollarsInFlight: (infectionsByRequestedTime * 0.65 * Math.floor(input.avgDailyIncomeInUSD)) / 30
-        }, 
-    }
-});
+            currentlyInfected: severeCurrentlyInfected,
+            infectionsByRequestedTime: severeInfectionsByRequestedTime,
+            casesByRequestedTime: severeSevereCasesByRequestedTime,
+            hospitalBedsByRequestedTime: severeHospitalBedsByRequestedTime,
+            casesForICUByRequestedTime: severeCasesForICUByRequestedTime,
+            casesForVentilatorsByRequestedTime: severeCasesForVentilatorsByRequestedTime,
+            dollarsInFlight: severeDollarsInFlight
+        } 
+  };
+};
 
 export default covid19ImpactEstimator;
