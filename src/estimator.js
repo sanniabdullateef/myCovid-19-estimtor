@@ -19,15 +19,15 @@ const data = {
 const covid19ImpactEstimator = (data) => {
 const { reportedCases, periodType, totalHospitalBeds} = data;
 let {timeToElapse} = data;
-const {avgDailyIncomeInUSD} = data.region;
+const {avgDailyIncomeInUSD, avgDailyIncomePopulation} = data.region;
 
 const currentlyInfected = reportedCases * 10;
 const severeCurrentlyInfected = reportedCases * 50;
 
 if(periodType === "weeks"){
-    timeToElapse *=7;
+    timeToElapse *= 7;
 } else if (periodType === "months"){
-    timeToElapse *=30;
+    timeToElapse *= 30;
 };
 
 // Cases for Impact of covid-19 Estimator Calculations
