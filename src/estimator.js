@@ -1,7 +1,7 @@
 // Default Configuration given below for input 
 
 // eslint-disable-next-line no-unused-vars
-const data = {
+const input = {
         region: {
         name: "Africa",
         avgAge: 19.7,
