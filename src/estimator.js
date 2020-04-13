@@ -1,7 +1,7 @@
 // Default Configuration given below for input 
 
 // eslint-disable-next-line no-unused-vars
-const input = {
+const data = {
         region: {
         name: "Africa",
         avgAge: 19.7,
@@ -15,6 +15,7 @@ const input = {
         population: 92931687,
         totalHospitalBeds: 678874
 };
+// eslint-disable-next-line no-shadow
 const covid19ImpactEstimator = (data) => {
 const { reportedCases, periodType, totalHospitalBeds} = data;
 let {timeToElapse} = data;
