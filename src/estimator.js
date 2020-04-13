@@ -1,7 +1,6 @@
 // Default Configuration given below for input 
-/ eslint-disable max-len /
-/ eslint-disable no-unused-vars /
-/ eslint-disable no-undef /
+
+// eslint-disable-next-line no-unused-vars
 const input = {
         region: {
         name: "Africa",
@@ -17,7 +16,6 @@ const input = {
         totalHospitalBeds: 1380614
 };
 const covid19ImpactEstimator = (data) => {
-    const data = input;
 const { reportedCases, periodType, totalHospitalBeds} = data;
 let {timeToElapse} = data;
 const {avgDailyIncomeInUSD, avgDailyIncomePopulation} = data.region;
