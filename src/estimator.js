@@ -63,7 +63,7 @@ const severeDollarsInFlight = Math.trunc((severeInfectionsByRequestedTime * avgD
         severeImpact: {
             currentlyInfected: severeCurrentlyInfected,
             infectionsByRequestedTime: severeInfectionsByRequestedTime,
-            casesByRequestedTime: severeSevereCasesByRequestedTime,
+            severecasesByRequestedTime: severeSevereCasesByRequestedTime,
             hospitalBedsByRequestedTime: severeHospitalBedsByRequestedTime,
             casesForICUByRequestedTime: severeCasesForICUByRequestedTime,
             casesForVentilatorsByRequestedTime: severeCasesForVentilatorsByRequestedTime,
