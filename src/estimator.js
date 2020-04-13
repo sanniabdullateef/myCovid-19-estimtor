@@ -32,7 +32,7 @@ if(periodType === "weeks"){
 
 // Cases for Impact of covid-19 Estimator Calculations
 
-const infectionsByRequestedTime = currentlyInfected (2 * (Math.trunc(timeToElapse / 3)));
+const infectionsByRequestedTime = currentlyInfected * (2 ** (Math.trunc(timeToElapse / 3)));
 const severeCasesByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.15);
 const hospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - severeCasesByRequestedTime);
 const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.05);
@@ -41,7 +41,7 @@ const dollarsInFlight = Math.trunc((infectionsByRequestedTime * avgDailyIncomePo
 
 // Cases for severeImpact of covid-19 Estimator Calculations
 
-const severeInfectionsByRequestedTime = severeCurrentlyInfected (2 * (Math.trunc(timeToElapse / 3)));
+const severeInfectionsByRequestedTime = severeCurrentlyInfected * (2 ** (Math.trunc(timeToElapse / 3)));
 const severeSevereCasesByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.15);
 const severeHospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - severeCasesByRequestedTime);
 const severeCasesForICUByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.05);
