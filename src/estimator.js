@@ -43,7 +43,7 @@ const dollarsInFlight = Math.trunc((infectionsByRequestedTime * avgDailyIncomePo
 
 const severeInfectionsByRequestedTime = severeCurrentlyInfected * (2 ** (Math.trunc(timeToElapse / 3)));
 const severeSevereCasesByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.15);
-const severeHospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - severeCasesByRequestedTime);
+const severeHospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - severeSevereCasesByRequestedTime);
 const severeCasesForICUByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.05);
 const severeCasesForVentilatorsByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.02);
 const severeDollarsInFlight = Math.trunc((severeInfectionsByRequestedTime * avgDailyIncomePopulation * avgDailyIncomeInUSD) / timeToElapse);
