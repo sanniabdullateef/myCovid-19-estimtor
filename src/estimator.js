@@ -34,7 +34,7 @@ if(periodType === "weeks"){
 
 const infectionsByRequestedTime = currentlyInfected * (2 ** (Math.trunc(timeToElapse / 3)));
 const severeCasesByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.15);
-const hospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - severeCasesByRequestedTime);
+const hospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - (severeCasesByRequestedTime));
 const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.05);
 const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.02);
 const dollarsInFlight = Math.trunc((infectionsByRequestedTime * avgDailyIncomePopulation * avgDailyIncomeInUSD) / timeToElapse);
@@ -43,7 +43,7 @@ const dollarsInFlight = Math.trunc((infectionsByRequestedTime * avgDailyIncomePo
 
 const severeInfectionsByRequestedTime = severeCurrentlyInfected * (2 ** (Math.trunc(timeToElapse / 3)));
 const severeSevereCasesByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.15);
-const severeHospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - severeSevereCasesByRequestedTime);
+const severeHospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds * 0.35) - (severeSevereCasesByRequestedTime));
 const severeCasesForICUByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.05);
 const severeCasesForVentilatorsByRequestedTime = Math.trunc(severeInfectionsByRequestedTime * 0.02);
 const severeDollarsInFlight = Math.trunc((severeInfectionsByRequestedTime * avgDailyIncomePopulation * avgDailyIncomeInUSD) / timeToElapse);
