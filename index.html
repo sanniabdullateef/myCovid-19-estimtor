@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+ 
+    <h1 class="text-center bg-dark text-white">Covid-19 Estimator</h1> 
+    
+    <div class="container first-container jumbotron vertical-center">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <div class="input-group w-50">
+                    <input type="text" class="form-control data-population" placeholder="Population" aria-label="number" aria-describedby="button-addon2">
+                  </div>
+        </div> <br><br>
+
+        <div class="col-sm-12 col-lg-12">
+            <div class="input-group w-50">
+                <input type="text" class="form-control data-time-to-elapse" placeholder="Time to Elapses" aria-label="number" aria-describedby="button-addon2">
+              </div>
+    </div><br><br>
+
+    <div class="col-sm-12 col-lg-12">
+        <div class="input-group w-50">
+            <input type="text" class="form-control data-reported-cases" placeholder="ReportedCases" aria-label="number" aria-describedby="button-addon2">
+          </div>
+</div><br><br>
+
+<div class="col-sm-12 col-lg-12">
+    <div class="input-group w-50">
+        <input type="text" class="form-control data-total-hospital-beds" placeholder="totalHospitalBeds" aria-label="Recipient's username" aria-describedby="button-addon2">
+      </div>
+</div><br><br>
+
+<div class="col-sm-12 col-lg-12">
+<select class="form-control input-small w-50 data-period-type" placeholder="periodType">
+    <option>Days</option>
+    <option>Weeks</option>
+    <option>Months</option>
+  </select>
+  </div> <br><br>
+
+  <div class="col-lg-12 col-sm-12 data-go-estimate w-50">
+    <button type="submit" id="data-go-estimate" class="btn btn-primary">Submit</button>
+  </div>
+
+    </div>
+
+      
+    <!-- Optional JavaScript -->
+    <script src="/src/estimator.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

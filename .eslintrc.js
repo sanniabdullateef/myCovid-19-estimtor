@@ -6,7 +6,7 @@ module.exports = {
     jest: true
   },
   extends: [
-    'airbnb-base',
+    'airbnb-base', 'prettier'
   ],
   globals: {
     Atomics: 'readonly',
@@ -18,6 +18,8 @@ module.exports = {
   },
   rules: {
     "comma-dangle": ["error", "never"],
-    "no-param-reassign": ["error", { "props": false }]
+    "no-param-reassign": ["error", { "props": false }],
+    "semi": ["error", "always"],
+        "quotes": ["error", "double"]
   },
 };
