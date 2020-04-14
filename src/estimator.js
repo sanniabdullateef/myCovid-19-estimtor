@@ -72,4 +72,4 @@ const severeDollarsInFlight = Math.trunc((severeInfectionsByRequestedTime * avgD
   };
 };
 
-export default covid19ImpactEstimator;
+module.export = covid19ImpactEstimator;
